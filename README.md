@@ -26,7 +26,7 @@ Time spent: **15** hours spent in total
       RewriteRule ^ - [L,R=403]
       ```
       
-  - [ ] GIF Walkthrough: 
+  - [ ] GIF Walkthrough: ![](https://raw.githubusercontent.com/trezzan/RepoBoi/master/UserEnumeration.gif)
   - [ ] Steps to recreate: in Kali terminal enter
   ```
   "wpscan --url http://wpdistillery.vm --enumerate utp"
@@ -38,7 +38,7 @@ Time spent: **15** hours spent in total
     - Vulnerability types: Version Number Exposure
     - Tested in version: 4.2
     - Fixed in version: Not Fixed. Admins must force the readme files content to be changed or remove access to the page. 
-  - [ ] GIF Walkthrough: <img src="my_gif_walkthrough_url" width="800">
+  - [ ] GIF Walkthrough: ![](https://raw.githubusercontent.com/trezzan/RepoBoi/master/ReadMe.gif)
   - [ ] Steps to recreate: Any WP site that is known to be Wordpress: add the text
   '''
   /readme.html
@@ -51,7 +51,7 @@ Time spent: **15** hours spent in total
     - Vulnerability types: XXS
     - Tested in version: 4.2
     - Fixed in version: 4.2.1
-  - [ ] GIF Walkthrough: ![]<img src="my_gif_walkthrough_url" width="800">
+  - [ ] GIF Walkthrough: ![](https://raw.githubusercontent.com/trezzan/RepoBoi/master/XSS.gif)
   - [ ] Steps to recreate: Find  a section to comment on a page or post. Fields other than body don't really matter. Insert the script to alert, and overload it with characters. Submit and wait for the site to die slowly. It is important to already be approved to comment or the admin will easily deny. Post something simple first, then go in for the kill!
   - [ ] Affected source code:
     - MySQL database up to v.5.5.41
