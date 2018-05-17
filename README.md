@@ -1,6 +1,6 @@
 # Project 7 - WordPress Pentesting
 
-Time spent: **10* hours spent in total
+Time spent: **10** hours spent in total
 
 5 for setup, 5 for expoiting
 
